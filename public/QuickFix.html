@@ -35,20 +35,24 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        .form-container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+        .service-card-glass {
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .service-card {
             transition: all 0.3s ease;
             cursor: pointer;
         }
         
-        .service-card:hover {
+        .service-card-glass:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .form-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
         .loading-spinner {
@@ -114,74 +118,64 @@
             </p>
         </div>
 
-        <!-- Services Grid -->
-        <!-- Services Grid -->
-<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 mb-12">
-    <div class="service-card bg-white/90 p-4 rounded-xl text-center">
-        <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-            <i class="fa-solid fa-plug text-yellow-600 text-xl"></i>
-        </div>
-        <p class="text-sm font-medium text-gray-800">Electrician</p>
-        <p class="text-xs text-gray-600">Services</p>
-    </div>
+        <!-- Services Grid - Responsive: 2 columns mobile, 4 columns desktop -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-5xl mx-auto">
+            <div class="service-card-glass p-4 rounded-xl text-center">
+                <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <i class="fa-solid fa-plug text-yellow-600 text-xl"></i>
+                </div>
+                <p class="text-sm font-medium text-white">Electrician</p>
+            </div>
 
-    <div class="service-card bg-white/90 p-4 rounded-xl text-center">
-        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-            <i class="fa-solid fa-screwdriver-wrench text-blue-600 text-xl"></i>
-        </div>
-        <p class="text-sm font-medium text-gray-800">Plumber</p>
-        <p class="text-xs text-gray-600">Services</p>
-    </div>
+            <div class="service-card-glass p-4 rounded-xl text-center">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <i class="fa-solid fa-screwdriver-wrench text-blue-600 text-xl"></i>
+                </div>
+                <p class="text-sm font-medium text-white">Plumber</p>
+            </div>
 
-    <div class="service-card bg-white/90 p-4 rounded-xl text-center">
-        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-            <i class="fa-solid fa-broom text-green-600 text-xl"></i>
-        </div>
-        <p class="text-sm font-medium text-gray-800">Cleaner</p>
-        <p class="text-xs text-gray-600">Services</p>
-    </div>
+            <div class="service-card-glass p-4 rounded-xl text-center">
+                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <i class="fa-solid fa-broom text-green-600 text-xl"></i>
+                </div>
+                <p class="text-sm font-medium text-white">Cleaner</p>
+            </div>
 
-    <div class="service-card bg-white/90 p-4 rounded-xl text-center">
-        <div class="w-12 h-12 bg-brown-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-            <i class="fa-solid fa-hammer text-amber-600 text-xl"></i>
-        </div>
-        <p class="text-sm font-medium text-gray-800">Carpenter</p>
-        <p class="text-xs text-gray-600">Services</p>
-    </div>
+            <div class="service-card-glass p-4 rounded-xl text-center">
+                <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <i class="fa-solid fa-hammer text-amber-600 text-xl"></i>
+                </div>
+                <p class="text-sm font-medium text-white">Carpenter</p>
+            </div>
 
-    <div class="service-card bg-white/90 p-4 rounded-xl text-center">
-        <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-            <i class="fa-solid fa-fan text-cyan-600 text-xl"></i>
-        </div>
-        <p class="text-sm font-medium text-gray-800">AC Repair</p>
-        <p class="text-xs text-gray-600">Services</p>
-    </div>
+            <div class="service-card-glass p-4 rounded-xl text-center">
+                <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <i class="fa-solid fa-fan text-cyan-600 text-xl"></i>
+                </div>
+                <p class="text-sm font-medium text-white">AC Repair</p>
+            </div>
 
-    <div class="service-card bg-white/90 p-4 rounded-xl text-center">
-        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-            <i class="fa-solid fa-paintbrush text-purple-600 text-xl"></i>
-        </div>
-        <p class="text-sm font-medium text-gray-800">Painter</p>
-        <p class="text-xs text-gray-600">Services</p>
-    </div>
+            <div class="service-card-glass p-4 rounded-xl text-center">
+                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <i class="fa-solid fa-paintbrush text-purple-600 text-xl"></i>
+                </div>
+                <p class="text-sm font-medium text-white">Painter</p>
+            </div>
 
-    <div class="service-card bg-white/90 p-4 rounded-xl text-center">
-        <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-            <i class="fa-solid fa-wrench text-gray-600 text-xl"></i>
-        </div>
-        <p class="text-sm font-medium text-gray-800">Mechanic</p>
-        <p class="text-xs text-gray-600">Services</p>
-    </div>
+            <div class="service-card-glass p-4 rounded-xl text-center">
+                <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <i class="fa-solid fa-wrench text-gray-600 text-xl"></i>
+                </div>
+                <p class="text-sm font-medium text-white">Mechanic</p>
+            </div>
 
-    <div class="service-card bg-white/90 p-4 rounded-xl text-center">
-        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-            <i class="fa-solid fa-water text-purple-600 text-xl"></i>
+            <div class="service-card-glass p-4 rounded-xl text-center">
+                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <i class="fa-solid fa-water text-purple-600 text-xl"></i>
+                </div>
+                <p class="text-sm font-medium text-white">Septic Tank</p>
+            </div>
         </div>
-        <p class="text-sm font-medium text-gray-800">Septictank cleaning</p>
-        <p class="text-xs text-gray-600">Services</p>
-    </div>
-</div>
-
 
         <!-- Main Form -->
         <div class="max-w-2xl mx-auto">
@@ -229,6 +223,7 @@
                             <option value="ac-repair">AC Repair Services</option>
                             <option value="painter">Painter Services</option>
                             <option value="mechanic">Mechanic Services</option>
+                            <option value="septic-tank">Septic Tank Cleaning</option>
                         </select>
                     </div>
 
@@ -262,18 +257,17 @@
             </div>
         </div>
 
-       <!-- Customer Support -->
-<div class="text-center mt-12">
-    <div class="glass-effect rounded-2xl p-6 max-w-md mx-auto">
-        <h3 class="text-white text-lg font-semibold mb-2">Need Help?</h3>
-        <p class="text-white/90 text-sm mb-4">Our customer support team is here to assist you</p>
-        <div class="text-white font-medium space-y-1">
-            📞 Customer Support 1: <a href="tel:9392708186" class="underline hover:text-blue-300">9392708186</a><br>
-            📞 Customer Support 2: <a href="tel:9100411357" class="underline hover:text-blue-300">9100411357</a>
+        <!-- Customer Support -->
+        <div class="text-center mt-12">
+            <div class="glass-effect rounded-2xl p-6 max-w-md mx-auto">
+                <h3 class="text-white text-lg font-semibold mb-2">Need Help?</h3>
+                <p class="text-white/90 text-sm mb-4">Our customer support team is here to assist you</p>
+                <div class="text-white font-medium space-y-1">
+                    📞 Customer Support 1: <a href="tel:9392708186" class="underline hover:text-blue-300">9392708186</a><br>
+                    📞 Customer Support 2: <a href="tel:9100411357" class="underline hover:text-blue-300">9100411357</a>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-
     </div>
 
     <script>
@@ -289,44 +283,44 @@
         }
 
         // Add floating animation to service cards
-        document.querySelectorAll('.service-card').forEach((card, index) => {
+        document.querySelectorAll('.service-card-glass').forEach((card, index) => {
             card.style.animationDelay = `${index * 0.1}s`;
             card.classList.add('fade-in');
         });
+
         form.addEventListener('submit', function(e) {
-         e.preventDefault();
-    
-    // Get form data
-    const formData = {
-        name: document.getElementById('name').value,
-        phone: document.getElementById('phone').value,
-        address: document.getElementById('address').value,
-        serviceType: document.getElementById('serviceType').value
-    };
+            e.preventDefault();
+        
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value,
+                serviceType: document.getElementById('serviceType').value
+            };
 
-    // Hide form and show loading
-    form.classList.add('hidden');
-    loadingState.classList.remove('hidden');
+            // Hide form and show loading
+            form.classList.add('hidden');
+            loadingState.classList.remove('hidden');
 
-    // Send to backend
-    fetch('/api/submit-request', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-    })
-    .then(res => res.json())
-    .then(data => {
-        loadingState.classList.add('hidden');
-        successState.classList.remove('hidden');
-    })
-    .catch(err => {
-        alert("Something went wrong. Try again later.");
-        console.error(err);
-        form.classList.remove('hidden');
-        loadingState.classList.add('hidden');
-    });
-});
-
+            // Send to backend
+            fetch('/api/submit-request', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            })
+            .then(res => res.json())
+            .then(data => {
+                loadingState.classList.add('hidden');
+                successState.classList.remove('hidden');
+            })
+            .catch(err => {
+                alert("Something went wrong. Try again later.");
+                console.error(err);
+                form.classList.remove('hidden');
+                loadingState.classList.add('hidden');
+            });
+        });
     </script>
 </body>
 </html>
