@@ -87,25 +87,267 @@
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
+
+        /* Loader Styles - Apple-like with violet background */
+        .loader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .loader-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loader-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .loader-services {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .loader-service-item {
+            width: 72px;
+            height: 72px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(20px);
+            transform: scale(0);
+            animation: popIn 0.8s ease-out forwards;
+            transition: all 0.3s ease;
+        }
+        
+        .loader-service-item:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .loader-service-item i {
+            font-size: 28px;
+            color: white;
+            opacity: 0.9;
+        }
+        
+        @keyframes popIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+                rotate: 180deg;
+            }
+            60% {
+                transform: scale(1.1);
+                rotate: -10deg;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+                rotate: 0deg;
+            }
+        }
+        
+        .loader-brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .loader-brand .logo {
+            width: 56px;
+            height: 56px;
+            background: white;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: logoFloat 2s ease-in-out infinite;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .loader-brand .brand-text {
+            font-size: 36px;
+            font-weight: 700;
+            color: white;
+            animation: textFadeIn 1s ease-out;
+            letter-spacing: -0.5px;
+        }
+        
+        @keyframes logoFloat {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+        
+        @keyframes textFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .loader-progress {
+            width: 240px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .loader-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #ffffff, #f0f0f0);
+            border-radius: 3px;
+            transform: translateX(-100%);
+            animation: progressBar 2s ease-out forwards;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        @keyframes progressBar {
+            to {
+                transform: translateX(0);
+            }
+        }
+        
+        .loader-text {
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            opacity: 0.8;
+            animation: textPulse 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes textPulse {
+            0%, 100% {
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .loader-services {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .loader-service-item {
+                width: 64px;
+                height: 64px;
+            }
+            
+            .loader-service-item i {
+                font-size: 24px;
+            }
+            
+            .loader-brand .brand-text {
+                font-size: 28px;
+            }
+            
+            .loader-progress {
+                width: 200px;
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen gradient-bg">
-    <!-- Navigation -->
-    <nav class="glass-effect py-4 px-6">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-                    <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+    <!-- Loader Overlay -->
+    <div id="loaderOverlay" class="loader-overlay">
+        <div class="loader-container">
+            <!-- Brand Logo -->
+            <div class="loader-brand">
+                <div class="logo">
+                    <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
                     </svg>
                 </div>
-                <span class="text-white text-xl font-bold">QuickFix</span>
+                <span class="brand-text">QuickFix</span>
             </div>
-            <div class="text-white text-sm">
-                Your Problem Solver
+            
+            <!-- Services Icons -->
+            <div class="loader-services">
+                <div class="loader-service-item" style="animation-delay: 0.1s;">
+                    <i class="fa-solid fa-plug"></i>
+                </div>
+                <div class="loader-service-item" style="animation-delay: 0.2s;">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                </div>
+                <div class="loader-service-item" style="animation-delay: 0.3s;">
+                    <i class="fa-solid fa-broom"></i>
+                </div>
+                <div class="loader-service-item" style="animation-delay: 0.4s;">
+                    <i class="fa-solid fa-hammer"></i>
+                </div>
+                <div class="loader-service-item" style="animation-delay: 0.5s;">
+                    <i class="fa-solid fa-fan"></i>
+                </div>
+                <div class="loader-service-item" style="animation-delay: 0.6s;">
+                    <i class="fa-solid fa-paintbrush"></i>
+                </div>
+                <div class="loader-service-item" style="animation-delay: 0.7s;">
+                    <i class="fa-solid fa-wrench"></i>
+                </div>
+                <div class="loader-service-item" style="animation-delay: 0.8s;">
+                    <i class="fa-solid fa-water"></i>
+                </div>
             </div>
+            
+            <!-- Progress Bar -->
+            <div class="loader-progress">
+                <div class="loader-progress-bar"></div>
+            </div>
+            
+            <!-- Loading Text -->
+            <div class="loader-text">Setting up your services...</div>
         </div>
-    </nav>
+    </div>
+    <!-- Main Content -->
+    <div id="mainContent" style="opacity: 0;">
+        <!-- Navigation -->
+        <nav class="glass-effect py-4 px-6">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                        </svg>
+                    </div>
+                    <span class="text-white text-xl font-bold">QuickFix</span>
+                </div>
+                <div class="text-white text-sm">
+                    Your Problem Solver
+                </div>
+            </div>
+        </nav>
 
     <!-- Hero Section -->
     <div class="container mx-auto px-6 py-12">
@@ -271,6 +513,19 @@
     </div>
 
     <script>
+        // Loader functionality
+        window.addEventListener('load', function() {
+            const loaderOverlay = document.getElementById('loaderOverlay');
+            const mainContent = document.getElementById('mainContent');
+            
+            // Hide loader after 2.5 seconds
+            setTimeout(() => {
+                loaderOverlay.classList.add('hidden');
+                mainContent.style.opacity = '1';
+                mainContent.style.transition = 'opacity 0.5s ease-in';
+            }, 2500);
+        });
+
         const form = document.getElementById('serviceForm');
         const loadingState = document.getElementById('loadingState');
         const successState = document.getElementById('successState');
