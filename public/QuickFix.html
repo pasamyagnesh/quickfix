@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickFix - Your Problem Solver</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#4F46E5',
+                        'secondary': '#7C3AED',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .form-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4F46E5;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="min-h-screen gradient-bg">
+    <!-- Navigation -->
+    <nav class="glass-effect py-4 px-6">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                    <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                    </svg>
+                </div>
+                <span class="text-white text-xl font-bold">QuickFix</span>
+            </div>
+            <div class="text-white text-sm">
+                Your Problem Solver
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container mx-auto px-6 py-12">
+        <div class="text-center mb-12 fade-in">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">
+                Find trusted local workers in minutes
+            </h1>
+            <p class="text-xl text-white/90 mb-8">
+                for your home services
+            </p>
+        </div>
+
+        <!-- Services Grid -->
+        <!-- Services Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 mb-12">
+    <div class="service-card bg-white/90 p-4 rounded-xl text-center">
+        <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+            <i class="fa-solid fa-plug text-yellow-600 text-xl"></i>
+        </div>
+        <p class="text-sm font-medium text-gray-800">Electrician</p>
+        <p class="text-xs text-gray-600">Services</p>
+    </div>
+
+    <div class="service-card bg-white/90 p-4 rounded-xl text-center">
+        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+            <i class="fa-solid fa-screwdriver-wrench text-blue-600 text-xl"></i>
+        </div>
+        <p class="text-sm font-medium text-gray-800">Plumber</p>
+        <p class="text-xs text-gray-600">Services</p>
+    </div>
+
+    <div class="service-card bg-white/90 p-4 rounded-xl text-center">
+        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+            <i class="fa-solid fa-broom text-green-600 text-xl"></i>
+        </div>
+        <p class="text-sm font-medium text-gray-800">Cleaner</p>
+        <p class="text-xs text-gray-600">Services</p>
+    </div>
+
+    <div class="service-card bg-white/90 p-4 rounded-xl text-center">
+        <div class="w-12 h-12 bg-brown-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+            <i class="fa-solid fa-hammer text-amber-600 text-xl"></i>
+        </div>
+        <p class="text-sm font-medium text-gray-800">Carpenter</p>
+        <p class="text-xs text-gray-600">Services</p>
+    </div>
+
+    <div class="service-card bg-white/90 p-4 rounded-xl text-center">
+        <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+            <i class="fa-solid fa-fan text-cyan-600 text-xl"></i>
+        </div>
+        <p class="text-sm font-medium text-gray-800">AC Repair</p>
+        <p class="text-xs text-gray-600">Services</p>
+    </div>
+
+    <div class="service-card bg-white/90 p-4 rounded-xl text-center">
+        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+            <i class="fa-solid fa-paintbrush text-purple-600 text-xl"></i>
+        </div>
+        <p class="text-sm font-medium text-gray-800">Painter</p>
+        <p class="text-xs text-gray-600">Services</p>
+    </div>
+
+    <div class="service-card bg-white/90 p-4 rounded-xl text-center">
+        <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+            <i class="fa-solid fa-wrench text-gray-600 text-xl"></i>
+        </div>
+        <p class="text-sm font-medium text-gray-800">Mechanic</p>
+        <p class="text-xs text-gray-600">Services</p>
+    </div>
+
+    <div class="service-card bg-white/90 p-4 rounded-xl text-center">
+        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+            <i class="fa-solid fa-water text-purple-600 text-xl"></i>
+        </div>
+        <p class="text-sm font-medium text-gray-800">Septictank cleaning</p>
+        <p class="text-xs text-gray-600">Services</p>
+    </div>
+</div>
+
+
+        <!-- Main Form -->
+        <div class="max-w-2xl mx-auto">
+            <div class="form-container rounded-3xl p-8 shadow-2xl">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">Your Problem Solver</h2>
+                    <p class="text-gray-600">Fill out the form below and we'll connect you with the right professional</p>
+                </div>
+
+                <form id="serviceForm" class="space-y-6">
+                    <!-- Name Field -->
+                    <div class="relative">
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                        <input type="text" id="name" name="name" required
+                               class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary focus:outline-none transition-colors bg-white/80"
+                               placeholder="Enter your full name">
+                    </div>
+
+                    <!-- Phone Number Field -->
+                    <div class="relative">
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required
+                               class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary focus:outline-none transition-colors bg-white/80"
+                               placeholder="Enter your phone number">
+                    </div>
+
+                    <!-- Address Field -->
+                    <div class="relative">
+                        <label for="address" class="block text-sm font-medium text-gray-700 mb-2">Address</label>
+                        <textarea id="address" name="address" required rows="3"
+                                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary focus:outline-none transition-colors bg-white/80 resize-none"
+                                  placeholder="Enter your complete address"></textarea>
+                    </div>
+
+                    <!-- Service Type Dropdown -->
+                    <div class="relative">
+                        <label for="serviceType" class="block text-sm font-medium text-gray-700 mb-2">Service Type</label>
+                        <select id="serviceType" name="serviceType" required
+                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary focus:outline-none transition-colors bg-white/80">
+                            <option value="">Select a service type</option>
+                            <option value="electrician">Electrician Services</option>
+                            <option value="plumber">Plumber Services</option>
+                            <option value="cleaner">Cleaner Services</option>
+                            <option value="carpenter">Carpenter Services</option>
+                            <option value="ac-repair">AC Repair Services</option>
+                            <option value="painter">Painter Services</option>
+                            <option value="mechanic">Mechanic Services</option>
+                        </select>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="submitBtn"
+                            class="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 px-6 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 pulse-animation">
+                        Request Service
+                    </button>
+                </form>
+
+                <!-- Loading State -->
+                <div id="loadingState" class="hidden text-center py-12">
+                    <div class="loading-spinner mx-auto mb-4"></div>
+                    <p class="text-gray-600 text-lg">Processing your request...</p>
+                    <p class="text-gray-500 text-sm mt-2">Please wait while we connect you with a professional</p>
+                </div>
+
+                <!-- Success State -->
+                <div id="successState" class="hidden text-center py-12">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Request Submitted Successfully!</h3>
+                    <p class="text-gray-600 mb-4">We'll contact you within 24 hours to discuss your service needs.</p>
+                    <button onclick="resetForm()" class="text-primary hover:text-secondary font-medium">
+                        Submit Another Request
+                    </button>
+                </div>
+            </div>
+        </div>
+
+       <!-- Customer Support -->
+<div class="text-center mt-12">
+    <div class="glass-effect rounded-2xl p-6 max-w-md mx-auto">
+        <h3 class="text-white text-lg font-semibold mb-2">Need Help?</h3>
+        <p class="text-white/90 text-sm mb-4">Our customer support team is here to assist you</p>
+        <div class="text-white font-medium space-y-1">
+            📞 Customer Support 1: <a href="tel:9392708186" class="underline hover:text-blue-300">9392708186</a><br>
+            📞 Customer Support 2: <a href="tel:9100411357" class="underline hover:text-blue-300">9100411357</a>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    <script>
+        const form = document.getElementById('serviceForm');
+        const loadingState = document.getElementById('loadingState');
+        const successState = document.getElementById('successState');
+        const submitBtn = document.getElementById('submitBtn');
+
+        function resetForm() {
+            form.reset();
+            form.classList.remove('hidden');
+            successState.classList.add('hidden');
+        }
+
+        // Add floating animation to service cards
+        document.querySelectorAll('.service-card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+            card.classList.add('fade-in');
+        });
+        form.addEventListener('submit', function(e) {
+         e.preventDefault();
+    
+    // Get form data
+    const formData = {
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        address: document.getElementById('address').value,
+        serviceType: document.getElementById('serviceType').value
+    };
+
+    // Hide form and show loading
+    form.classList.add('hidden');
+    loadingState.classList.remove('hidden');
+
+    // Send to backend
+    fetch('/api/submit-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+    })
+    .then(res => res.json())
+    .then(data => {
+        loadingState.classList.add('hidden');
+        successState.classList.remove('hidden');
+    })
+    .catch(err => {
+        alert("Something went wrong. Try again later.");
+        console.error(err);
+        form.classList.remove('hidden');
+        loadingState.classList.add('hidden');
+    });
+});
+
+    </script>
+</body>
+</html>
