@@ -20,6 +20,7 @@
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         
         * {
             font-family: 'Inter', sans-serif;
@@ -47,6 +48,61 @@
             transform: translateY(-5px);
             background: rgba(255, 255, 255, 0.25);
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .location-card {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(20px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .location-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .location-card:hover::before {
+            left: 100%;
+        }
+        
+        .location-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.2) 100%);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .location-name {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            letter-spacing: 0.02em;
+            line-height: 1.3;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .location-card-premium {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.3) 0%, rgba(79, 70, 229, 0.2) 100%);
+            border: 2px solid rgba(124, 58, 237, 0.4);
+        }
+        
+        .location-card-premium:hover {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.4) 0%, rgba(79, 70, 229, 0.3) 100%);
+            border-color: rgba(124, 58, 237, 0.6);
         }
         
         .form-container {
@@ -276,6 +332,10 @@
             .loader-progress {
                 width: 200px;
             }
+            
+            .location-name {
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
@@ -419,6 +479,63 @@
             </div>
         </div>
 
+       
+
+
+<div class="mb-12">
+  <div class="text-center mb-8">
+    <h2 class="text-3xl font-bold text-white mb-2">Areas We Serve</h2>
+    <p class="text-white/90">Available in these locations</p>
+  </div>
+
+  <!-- Locations Grid -->
+  <div class="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+    
+    <!-- Location Item -->
+    <div class="relative flex items-center gap-2 bg-white/20 backdrop-filter backdrop-blur-sm border border-white/30 rounded-full px-4 py-2 hover:bg-white/30 transition-all duration-300">
+      <div class="relative w-2 h-2">
+        <div class="absolute inset-0 bg-green-400 rounded-full animate-ping opacity-75"></div>
+        <div class="relative w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+      </div>
+      <p class="text-white text-sm font-medium">Sujatha Nagar</p>
+    </div>
+
+    <div class="relative flex items-center gap-2 bg-white/20 backdrop-filter backdrop-blur-sm border border-white/30 rounded-full px-4 py-2 hover:bg-white/30 transition-all duration-300">
+      <div class="relative w-2 h-2">
+        <div class="absolute inset-0 bg-green-400 rounded-full animate-ping opacity-75"></div>
+        <div class="relative w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+      </div>
+      <p class="text-white text-sm font-medium">Pendurthi</p>
+    </div>
+
+    <div class="relative flex items-center gap-2 bg-white/20 backdrop-filter backdrop-blur-sm border border-white/30 rounded-full px-4 py-2 hover:bg-white/30 transition-all duration-300">
+      <div class="relative w-2 h-2">
+        <div class="absolute inset-0 bg-green-400 rounded-full animate-ping opacity-75"></div>
+        <div class="relative w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+      </div>
+      <p class="text-white text-sm font-medium">Vepagunta</p>
+    </div>
+
+    <div class="relative flex items-center gap-2 bg-white/20 backdrop-filter backdrop-blur-sm border border-white/30 rounded-full px-4 py-2 hover:bg-white/30 transition-all duration-300">
+      <div class="relative w-2 h-2">
+        <div class="absolute inset-0 bg-green-400 rounded-full animate-ping opacity-75"></div>
+        <div class="relative w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+      </div>
+      <p class="text-white text-sm font-medium">Chinnamushidiwada</p>
+    </div>
+
+    <div class="relative flex items-center gap-2 bg-white/20 backdrop-filter backdrop-blur-sm border border-white/30 rounded-full px-4 py-2 hover:bg-white/30 transition-all duration-300">
+      <div class="relative w-2 h-2">
+        <div class="absolute inset-0 bg-green-400 rounded-full animate-ping opacity-75"></div>
+        <div class="relative w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+      </div>
+      <p class="text-white text-sm font-medium">Simhachalam</p>
+    </div>
+
+  </div>
+</div>
+
+</div>
         <!-- Main Form -->
         <div class="max-w-2xl mx-auto">
             <div class="form-container rounded-3xl p-8 shadow-2xl">
@@ -539,6 +656,12 @@
 
         // Add floating animation to service cards
         document.querySelectorAll('.service-card-glass').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+            card.classList.add('fade-in');
+        });
+
+        // Add floating animation to location cards
+        document.querySelectorAll('.location-card').forEach((card, index) => {
             card.style.animationDelay = `${index * 0.1}s`;
             card.classList.add('fade-in');
         });
